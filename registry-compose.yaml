@@ -1,0 +1,39 @@
+version: '3.4'
+
+x-extra-hosts: &_x_extra_hosts
+  extra_hosts:
+    - "${APP_REGISTRY_NAME}:${APP_REGISTRY_ADDRESS}"
+
+x-registry-image: &_x-registry-image
+  image: "registry:${REGISTRY_VERSION:-2}"
+
+services:
+  registry:
+    <<: *_x-registry-image
+    networks:
+      default:
+        aliases:
+          - registry.alyvr.local
+          - alyvr.registry
+      nginx:
+    volumes:
+    - registry:/var/lib/registry
+    - ${TOP_DIR}/certs/server.crt:/certs/server.crt:ro
+    - ${TOP_DIR}/certs/server.key:/certs/server.key:ro
+
+    environment:
+    - DEBUG=true
+    - VIRTUAL_HOST=alyvr.registry,registry.alyvr.local
+    - VIRTUAL_PORT=5000
+    - VIRTUAL_PROTO=https
+    - SELF_SIGNED_HOST=registry.alyvr.local
+    - HTTPS_METHOD=noredirect
+    - REGISTRY_HTTP_ADDR=0.0.0.0:5000
+    - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/server.crt
+    - REGISTRY_HTTP_TLS_KEY=/certs/server.key
+
+volumes:
+  registry:
+    external: true
+    name: moqui_registry
+

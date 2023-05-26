@@ -1,0 +1,3 @@
+[submodule "docker-apiserver"]
+	path = docker-apiserver
+	url = git@gitlab.brainfood.com:brainfood/k3s-apiserver.git

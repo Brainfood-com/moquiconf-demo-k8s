@@ -1,0 +1,9 @@
+VHOST_STUB=moqui.local
+VHOST_SUFFIX=.moqui.local
+APP_EXTRA_VHOSTS=
+APP_REGISTRY_NAME=registry.moqui.local
+APP_REGISTRY_ADDRESS=10.43.0.50
+# Set this to the $PWD of where you checked out this repository
+APP_ROOT_DIR=/srv/ofbiz/moquiconf-demo
+APP_ROOT_MOUNT=/srv/moquiconf-demo-k8s
+COMPOSE_PROJECT_NAME=moquiconf-demo-k8s

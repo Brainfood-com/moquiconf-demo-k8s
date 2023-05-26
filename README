@@ -1,0 +1,6 @@
+* Install kubectl@1.27.x
+* Upgrade docker-ce
+* Install docker-compose@2.x
+* Copy env-sample to .env, update as needed(namely $APP_ROOT_DIR)
+* ./apiserver.sh start
+* ./apiserver.sh stop [-v]
