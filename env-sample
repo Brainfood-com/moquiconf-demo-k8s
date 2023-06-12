@@ -7,3 +7,13 @@ APP_REGISTRY_ADDRESS=10.43.0.50
 APP_ROOT_DIR=/srv/ofbiz/moquiconf-demo
 APP_ROOT_MOUNT=/srv/moquiconf-demo-k8s
 COMPOSE_PROJECT_NAME=moquiconf-demo-k8s
+
+AGENT_1_VHOST_STUB=moqui.tooz.private.brainfood.com
+AGENT_1_VHOST_SUFFIX=.moqui.tooz.private.brainfood.com
+AGENT_1_APP_EXTRA_VHOSTS=
+AGENT_1_K3S_LBPOOL=moqui-staging
+
+AGENT_2_VHOST_STUB=moqui-staging.tooz.private.brainfood.com
+AGENT_2_VHOST_SUFFIX=.moqui-staging.tooz.private.brainfood.com
+AGENT_2_APP_EXTRA_VHOSTS=
+AGENT_2_K3S_LBPOOL=moqui-staging
